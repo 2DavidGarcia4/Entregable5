@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import useFetch from "../../hooks/useFetch.js";
 import { setPokemons } from "../../store/slices/pokemons.slice.js";
 import { setIndButtons } from "../../store/slices/indButtons.slice.js";
+import { setPokemonType } from "../../store/slices/pokemonType.slice.js";
 
 export default function SelectType({setPage}){
   const types = useFetch("https://pokeapi.co/api/v2/type/")
   const pageLimit = useSelector(state=> state.pokedexData).pokemonsPerPage
-  const [selectedType, setSelectedType] = useState("all pokemons") 
+  const selectedType = useSelector(state=> state.pokemonType)
   const dispatch = useDispatch()
+  
   function click(){
     const infoSelect = document.querySelector(".pokedex_info-select").classList
     infoSelect.toggle("select-active")
@@ -24,7 +26,7 @@ export default function SelectType({setPage}){
       document.querySelector(".pokedex_info-select").classList.remove("select-active")
       fetch(`https://pokeapi.co/api/v2/type/${optionId}/`).then(prom=> prom.json()).then(res=> dispatch(setPokemons(res.pokemon.map(m=> m.pokemon))))
     }
-    setSelectedType(event.target.textContent)
+    dispatch(setPokemonType(event.target.textContent))
     setPage({start: 0, end: pageLimit})
     dispatch(setIndButtons({start: 0, end: 7}))
   }
