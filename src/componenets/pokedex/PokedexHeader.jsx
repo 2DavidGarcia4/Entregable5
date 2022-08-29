@@ -1,8 +1,10 @@
 import React from 'react'
 import imgLogo from "../../assets/logo.png"
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 export const PokedexHeader = ()=> {
+  const navigate = useNavigate()
+
   return (
     <>
       <div className="pokedex_header">
@@ -10,7 +12,9 @@ export const PokedexHeader = ()=> {
           <img src={imgLogo} alt="" />
         </div>
         <div className="pokedex_header-black">
-          <div className="pokedex_header-circle"></div>
+          <div onClick={()=> navigate("/config")} className="pokedex_header-circle">
+            <i className='bx bxs-cog' title='Settings'></i>
+          </div>
         </div>
       </div>
       <Outlet />

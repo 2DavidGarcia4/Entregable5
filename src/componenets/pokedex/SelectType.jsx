@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useFetch from "../../hooks/useFetch.js";
 import { setPokemons } from "../../store/slices/pokemons.slice.js";
+import { setIndButtons } from "../../store/slices/indButtons.slice.js";
 import { setSelectedType } from "../../store/slices/selectedType.slice.js";
 
 export default function SelectType(){
@@ -15,9 +16,15 @@ export default function SelectType(){
 
   function selectOption(event){
     const optionId = event.target.dataset.id
-    document.querySelector(".pokedex_info-select").classList.remove("select-active")
-    dispatch(setSelectedType(event.target.textContent))
-    fetch(`https://pokeapi.co/api/v2/type/${optionId}/`).then(prom=> prom.json()).then(res=> dispatch(setPokemons(res.pokemon.map(m=> m.pokemon))))
+    if(event.target.textContent == "all pokemons"){
+      fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1154").then(prom=> prom.json()).then(res=> dispatch(setPokemons(res.results)))
+    }else{
+      dispatch(setSelectedType(event.target.textContent))
+      document.querySelector(".pokedex_info-select").classList.remove("select-active")
+      fetch(`https://pokeapi.co/api/v2/type/${optionId}/`).then(prom=> prom.json()).then(res=> dispatch(setPokemons(res.pokemon.map(m=> m.pokemon))))
+    }
+
+    dispatch(setIndButtons({start: 0, end: 7}))
   }
 
   // console.log(types?.results.sort((a,b)=> a.name > b.name ? 1 : a.name < b.name ? -1 : 0))

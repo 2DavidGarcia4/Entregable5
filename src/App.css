@@ -7,19 +7,26 @@
   --Ligt-Black: #212121;
   --Gray: #9F9F9F;
   --Very-Ligt-Gray: #c7c7c7;
+  --Background-Darck: #181818;
+  --Withe-Darck: #e6e6e6;
 }
 
 body{
+  transition: background-color 0.5s;
   background-color: var(--Background);
+}
+
+.darck_mode{
+  background-color: var(--Background-Darck);
 }
 
 .home{
   height: 100vh;
   display: flex;
   position: relative;
+  padding-top: 8vh;
   align-items: center;
   flex-direction: column;
-  padding-top: 8vh;
   justify-content: space-between;
 }
 
@@ -48,6 +55,10 @@ body{
 .home_header-text p{
   font-size: 25px;
   font-weight: 500;
+}
+
+.darck_mode .home_header-text p{
+  color: #dddddd;
 }
 
 .home_header form{
@@ -92,13 +103,165 @@ body{
 }
 
 
+/* Config */
+.config{
+  height: 100vh;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.config_logout{
+  top: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 7px -7px 14px #fff,
+  -7px 7px 14px #afafaf;
+  transition: width 0.5s, border-radius 0.5s, box-shadow 0.5s, color 0.5s;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.darck_mode .config_logout{
+  color: #fff;
+  box-shadow:  -7px 7px 14px #0a0a0a,
+  7px -7px 14px #202020;
+}
+
+.config_logout:hover{
+  width: 120px;
+  border-radius: 50px;
+}
+
+.config_logout i{
+  transition: transform 0.5s;
+  font-weight: 500;
+}
+
+.config_logout:hover i{
+  transform: translateX(-34px);
+}
+
+.config_logout p{
+  position: absolute;
+  transform: translateX(50px) scale(0);
+  transition: transform 0.5s;
+  font-weight: 500;
+}
+
+.config_logout:hover p{
+  transform: translateX(14px) scale(1);
+}
+
+.config_card{
+  width: 500px;
+  height: 400px;
+  padding: 20px;
+  display: flex;
+  row-gap: 20px;
+  background: var(--Background);
+  box-shadow:  -15px 15px 30px #afafaf,
+  15px -15px 30px #ffffff;
+  transition: background-color 0.5s, box-shadow 0.5s, color 0.5s;
+  align-items: center;
+  border-radius: 15px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.darck_mode .config_card{
+  color: #ececec;
+  box-shadow:  -15px 15px 30px #080808,
+  15px -15px 30px #1d1d1d;
+  background-color: var(--Background-Darck);
+}
+
+.config_card-items{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.config_card h2{
+  margin-bottom: 20px;
+}
+
+.config_card-theme{
+  display: flex;
+  row-gap: 10px;
+  flex-direction: column;
+}
+
+.card_theme-switch{
+  width: 58px;
+  height: 26px;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  position: relative;
+  box-shadow:  -8px 8px 16px #afafaf,
+  8px -8px 16px #ffffff;
+  transition: box-shadow 0.5s;
+  align-items: center;
+  border-radius: 26px;
+  justify-content: space-between;
+}
+
+.darck_mode .card_theme-switch{
+  box-shadow:  -8px 8px 16px #080808,
+  8px -8px 16px #252525;
+}
+
+.theme_switch-btn{
+  left: 4px;
+  height: 20px;
+  position: absolute;
+  transition: transform 0.5s, background-color 0.5s;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #212121;
+}
+
+.darck_mode .theme_switch-btn{
+  background-color: var(--Background);
+} 
+
+.bxs-moon{
+  transform: scale(0);
+  transition: transform 0.5s;
+}
+
+.bxs-sun{
+  transition: transform 0.5s;
+}
+
+.darck_mode .bxs-sun{
+  transform: scale(0);
+}
+
+.darck_mode .bxs-moon{
+  transform: scale(1);
+}
+
+.darck_mode .theme_switch-btn{
+  transform: translateX(30px);
+}
+
+
 /* Home */
 .home_design{
   width: 100%;
   bottom: 0;
   height: 130px;
-  position: relative;
   display: flex;
+  position: relative;
   align-items: center;
   flex-direction: column;
   justify-content: end;
@@ -117,15 +280,29 @@ body{
 }
 
 .home_design-circle{
-  position: absolute;
   height: 110px;
   border: black 12px solid;
+  cursor: pointer;
+  display: flex;
+  position: absolute;
+  align-items: center;
   aspect-ratio: 1;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
   background-color: white;
+}
+
+.home_design-circle i{
+  color: black;
+  z-index: 1;
+  position: absolute;
+  font-size: 80px;
+  transform: scale(0);
+  transition: transform 0.8s;
+}
+
+.home_design-circle:hover i{
+  transform: scale(1) rotate(300deg);
 }
 
 .design_circle-child{
@@ -134,6 +311,11 @@ body{
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: var(--Ligt-Black);
+  transition: transform 0.5s;
+}
+
+.home_design-circle:hover .design_circle-child{
+  transform: scale(0);
 }
 
 
@@ -174,6 +356,7 @@ body{
 .pokedex_header-circle{
   right: 8%;
   width: 116px;
+  cursor: pointer;
   border: 12px #000 solid;
   display: flex;
   position: absolute;
@@ -192,6 +375,23 @@ body{
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: var(--Ligt-Black);
+  transition: transform 0.5s;
+}
+
+.pokedex_header-circle:hover::after{
+  transform: scale(0);
+}
+
+.pokedex_header-circle i{
+  color: black;
+  z-index: 1;
+  font-size: 80px;
+  transform: scale(0);
+  transition: transform 0.8s;
+}
+
+.pokedex_header-circle:hover i{
+  transform: scale(1) rotate(300deg);
 }
 
 .pokedex_info{
@@ -207,6 +407,10 @@ body{
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 20px;
+}
+
+.darck_mode .pokedex_info-p{
+  color: #ebebeb;
 }
 
 .pokedex_info-spam{
@@ -229,7 +433,7 @@ body{
   border-radius: 4px;
 }
 
-.pokedex_info-search::after{
+.search-active::after{
   top: 60px;
   left: 20px;
   width: calc(74% - 40px);
@@ -253,6 +457,10 @@ body{
   border-bottom-left-radius: 4px;
 } 
 
+.darck_mode .pokedex_info-search input{
+  background-color: var(--Withe-Darck);
+}
+
 .search-active input{
   position: relative;
   border-bottom-left-radius: 0;
@@ -268,6 +476,10 @@ body{
   position: absolute;
   transition: transform 0.5s, height 0.5s;
   background-color: #fff;
+}
+
+.darck_mode .info_search-suggestion{
+  background-color: var(--Withe-Darck);
 }
 
 .search-active .info_search-suggestion{
@@ -290,6 +502,10 @@ body{
 
 .search_suggestion-option:hover{
   background-color: var(--Background);
+}
+
+.darck_mode .search_suggestion-option:hover{
+  background-color: #d1d1d1;
 }
 
 .search_suggestion-option span{
@@ -346,6 +562,10 @@ body{
   background-color: #fff;
 }
 
+.darck_mode .info_select-selected{
+  background-color: var(--Withe-Darck);
+}
+
 .select-active .info_select-selected::after{
   left: 10px;
   width: calc(100% - 20px);
@@ -376,6 +596,10 @@ body{
   transition: height 0.5s, padding 0.5s, box-shadow 0.5s;
   border-radius: 4px;
   background-color: #fff;
+}
+
+.darck_mode .info_select-options{
+  background-color: var(--Withe-Darck);
 }
 
 .select-active .info_select-options{
@@ -427,7 +651,6 @@ body{
   width: 282.5px;
   height: 400px;
   cursor: pointer;
-  /* border: 10px solid; */
   padding: 10px;
   display: flex;
   position: relative;
@@ -444,6 +667,11 @@ body{
   transform: scale(1.03);
   box-shadow: -9px 9px 15px #acacac,
   9px -9px 15px #ffffff;
+}
+
+.darck_mode .poke_card:hover{
+  box-shadow: -9px 9px 15px #0c0c0c,
+  9px -9px 15px #222222;
 }
 
 .poke_card img{
@@ -464,6 +692,10 @@ body{
   padding: 26px;
   flex-direction: column;
   background-color: #fff;
+}
+
+.darck_mode .poke_card-info{
+  background-color: #f0f0f0;
 }
 
 .card_info-pokemon{
@@ -533,10 +765,9 @@ body{
 
 /* Pagination */
 .pokedex_pagination{
-  margin: 0 auto;
   width: 100%;
   height: 100px;
-  /* border: #000 1px dashed; */
+  margin: 0 auto;
   display: flex;
   column-gap: 20px;
   align-items: center;
@@ -555,9 +786,18 @@ body{
   background-color: transparent;
 }
 
+.darck_mode .pokedex_pagination-btn{
+  color: #e4e4e4;
+}
+
 .pokedex_pagination-btn:hover{
   box-shadow: -7px 7px 14px #a3a3a3,
   7px -7px 14px #fff;
+}
+
+.darck_mode .pokedex_pagination-btn:hover{
+  box-shadow: -6px 6px 12px #0e0d0d,
+  6px -6px 12px #222222;
 }
 
 .pagination_btn-active{
@@ -596,6 +836,10 @@ body{
   padding-bottom: 80px;
   flex-direction: column;
   background-color: #fff;
+}
+
+.darck_mode .pokemon_info{
+  background-color: #ebebeb;
 }
 
 .pokemon_info-background{
@@ -811,6 +1055,10 @@ body{
   box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.600);
   border-radius: 5px;
   background-color: #fff;
+}
+
+.darck_mode .pokemon_movements{
+  background-color: #ebebeb;
 }
 
 .pokemon_movements-header{

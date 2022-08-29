@@ -6,7 +6,6 @@ import useFetch from "../../hooks/useFetch.js";
 export default function Pokemon(){
   const {id} = useParams()
   const pokemon = useFetch("https://pokeapi.co/api/v2/pokemon/"+id+"/")
-  // console.log(pokemon)
 
   return (
     <div className="pokemon">

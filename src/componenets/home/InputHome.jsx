@@ -1,17 +1,17 @@
 import React, {useState} from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom'
-import { setNameGlobal } from "../../store/slices/userName.slice.js";
+import { setData } from "../../store/slices/data.slice.js";
 
 export default function InputHome(){
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const pokedexData = {...useSelector(state=> state.pokedexData)}
+  const dispatch = useDispatch(), navigate = useNavigate()
 
   function submit(event){
     event.preventDefault()
     if(document.querySelector(".form-btn").classList.contains("active")){
-      // console.log(event.target.name.value.toLowerCase())
-      dispatch(setNameGlobal(event.target.name.value))
+      pokedexData.trainerName = event.target.name.value
+      dispatch(setData(pokedexData))
       navigate('/pokedex')
     }
   }

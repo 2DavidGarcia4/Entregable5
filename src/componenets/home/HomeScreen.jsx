@@ -1,8 +1,11 @@
 import React from "react";
 import InputHome from "./InputHome.jsx";
 import imgTitle from "../../assets/logo.png"
+import { useNavigate } from "react-router-dom";
 
 export default function HomeScreen(){
+  const navigate = useNavigate()
+
   return (
     <div className="home">
       <div className="home_header">
@@ -17,7 +20,8 @@ export default function HomeScreen(){
       <div className="home_design">
         <div className="home_design-red"></div>
         <div className="home_design-black"></div>
-        <div className="home_design-circle">
+        <div onClick={()=> navigate("/config")} className="home_design-circle">
+          <i class='bx bxs-cog' title='Settings'></i>
           <div className="design_circle-child"></div>
         </div>
       </div>
