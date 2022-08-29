@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import useFetch from "../../hooks/useFetch.js";
 import { setPokemons } from "../../store/slices/pokemons.slice.js";
 import { setIndButtons } from "../../store/slices/indButtons.slice.js";
-import { setSelectedType } from "../../store/slices/selectedType.slice.js";
 
-export default function SelectType(){
+export default function SelectType({setPage}){
   const types = useFetch("https://pokeapi.co/api/v2/type/")
-  const selectedType = useSelector(state=> state.selectedType) 
+  const pageLimit = useSelector(state=> state.pokedexData).pokemonsPerPage
+  const [selectedType, setSelectedType] = useState("all pokemons") 
   const dispatch = useDispatch()
   function click(){
     const infoSelect = document.querySelector(".pokedex_info-select").classList
@@ -16,14 +16,16 @@ export default function SelectType(){
 
   function selectOption(event){
     const optionId = event.target.dataset.id
+    // console.log("holaa")
+    // console.log(event.target.textContent)
     if(event.target.textContent == "all pokemons"){
       fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1154").then(prom=> prom.json()).then(res=> dispatch(setPokemons(res.results)))
     }else{
-      dispatch(setSelectedType(event.target.textContent))
       document.querySelector(".pokedex_info-select").classList.remove("select-active")
       fetch(`https://pokeapi.co/api/v2/type/${optionId}/`).then(prom=> prom.json()).then(res=> dispatch(setPokemons(res.pokemon.map(m=> m.pokemon))))
     }
-
+    setSelectedType(event.target.textContent)
+    setPage({start: 0, end: pageLimit})
     dispatch(setIndButtons({start: 0, end: 7}))
   }
 
