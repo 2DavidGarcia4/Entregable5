@@ -7,7 +7,6 @@ import SelectPage from "./SelectPage.jsx"
 
 export default function PokedexScreen({pokemons}){
   const [page, setPage] = useState({start: 0, end: useSelector(state=> state.pokedexData).pokemonsPerPage})
-  console.log("Page:",page)
   function click(event){
     const infoSearch = document.querySelector(".pokedex_info-search")
     if(![...infoSearch.childNodes].some(s=> s==event.target) && infoSearch.classList.contains("search-active")){
