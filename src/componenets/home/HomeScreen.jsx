@@ -21,7 +21,7 @@ export default function HomeScreen(){
         <div className="home_design-red"></div>
         <div className="home_design-black"></div>
         <div onClick={()=> navigate("/config")} className="home_design-circle">
-          <i class='bx bxs-cog' title='Settings'></i>
+          <i className='bx bxs-cog' title='Settings'></i>
           <div className="design_circle-child"></div>
         </div>
       </div>
