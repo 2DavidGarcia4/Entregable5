@@ -1,12 +1,12 @@
-# [📝 E-commerce](https://dg-e-commerce.netlify.app/)
+# [📟 Pokedex](https://dg-pokedex.netlify.app/)
 
-Aplicación web simulador de un **e-commerce** muestra todos los productos disponibles, puedes buscar un producto en concreto, filtrar productos por su precio o categoría, agregar y eliminar productos del carrito, comprar productos, ver los productos ya comprados, notificaciones de tipo tostada para acciones, animación de carga para algunas secciones, registro y acceso con autenticación.
+Muestra todos los pokemones, información de cada uno, filtra pokemones por su tipo, puedes buscar un pokemon en espesifico, puedes configurar el tema de color y cuantos pokemones se muestran por pagina.
 
 ## ✨ Características: 
 
+- Consumo de api
 - ReactJs
 - React router
 - Redux toolkit
 - Hooks
-- TypeScript
 - CSS
