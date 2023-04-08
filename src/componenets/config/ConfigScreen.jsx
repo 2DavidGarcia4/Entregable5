@@ -15,10 +15,9 @@ export const ConfigScreen = ()=> {
     dispatch(setData(pokedexData))
   }
 
-  function activeSwitch(event){
+  function activeSwitch(){
     document.querySelector("body").classList.toggle("darck_mode")
     pokedexData.darckMode = !pokedexData.darckMode
-    console.log(pokedexData)
     dispatch(setData(pokedexData))
   }
 

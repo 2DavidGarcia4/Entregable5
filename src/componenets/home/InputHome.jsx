@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom'
 import { setData } from "../../store/slices/data.slice.js";
@@ -17,7 +17,6 @@ export default function InputHome(){
   }
 
   function change(event){
-    console.log(event.target.value)
     const formBtn = document.querySelector(".form-btn").classList
     event.target.value ? formBtn.add("active") : formBtn.remove("active")
   }

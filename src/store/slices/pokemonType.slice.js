@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const pokemonType = createSlice({
   name: 'indButtons',
-  initialState: "all pokemons",
+  initialState: "todos",
   reducers: {
     setPokemonType: (state, action)=> action.payload 
   }
