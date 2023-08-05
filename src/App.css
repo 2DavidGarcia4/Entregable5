@@ -1,25 +1,3 @@
-:root{
-  --Background: #E5E5E5;
-  --Ligt-Red: #D93F3F;
-  --Red: #FE1936;
-  --Darck-Red: #DD1A1A;
-  --Black: #0C0C0C;
-  --Ligt-Black: #212121;
-  --Gray: #9F9F9F;
-  --Very-Ligt-Gray: #c7c7c7;
-  --Background-Darck: #181818;
-  --Withe-Darck: #e6e6e6;
-}
-
-body{
-  transition: background-color 0.5s;
-  background-color: var(--Background);
-}
-
-.darck_mode{
-  background-color: var(--Background-Darck);
-}
-
 .home{
   height: 100vh;
   display: flex;
@@ -57,25 +35,23 @@ body{
   font-weight: 500;
 }
 
-.darck_mode .home_header-text p{
-  color: #dddddd;
-}
-
 .home_header form{
   width: 100%;
   height: 58px;
   overflow: hidden;
   border-radius: 4px;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.150);
+  box-shadow: var(--Shadow);
 }
 
 .home_header input{
+  color: var(--Text-color);
   width: 72%;
   border: none;
   outline: none;
   padding: 17px 20px;
   font-size: 20px;
   font-weight: 500;
+  background-color: var(--Element-color);
 }
 
 .form-btn{
@@ -88,7 +64,7 @@ body{
   padding: 10px;
   font-size: 19px;
   font-weight: 500;
-  background-color: var(--Ligt-Red);
+  background-color: var(--Light-Red);
 }
 
 .form-btn.active{
@@ -130,7 +106,6 @@ body{
 }
 
 .darck_mode .config_logout{
-  color: #fff;
   box-shadow:  -7px 7px 14px #0a0a0a,
   7px -7px 14px #202020;
 }
@@ -177,10 +152,9 @@ body{
 }
 
 .darck_mode .config_card{
-  color: #ececec;
   box-shadow:  -15px 15px 30px #080808,
   15px -15px 30px #1d1d1d;
-  background-color: var(--Background-Darck);
+  background-color: var(--Background);
 }
 
 .config_card-items{
@@ -228,10 +202,6 @@ body{
   border-radius: 50%;
   background-color: #212121;
 }
-
-.darck_mode .theme_switch-btn{
-  background-color: var(--Background);
-} 
 
 .bxs-moon{
   transform: scale(0);
@@ -310,7 +280,7 @@ body{
   border: black 12px solid;
   aspect-ratio: 1;
   border-radius: 50%;
-  background-color: var(--Ligt-Black);
+  background-color: var(--Light-Black);
   transition: transform 0.5s;
 }
 
@@ -375,7 +345,7 @@ body{
   position: absolute;
   aspect-ratio: 1;
   border-radius: 50%;
-  background-color: var(--Ligt-Black);
+  background-color: var(--Light-Black);
   transition: transform 0.5s;
 }
 
@@ -410,10 +380,6 @@ body{
   margin-bottom: 20px;
 }
 
-.darck_mode .pokedex_info-p{
-  color: #ebebeb;
-}
-
 .pokedex_info-spam{
   color: var(--Red);
   font-weight: 700;
@@ -430,7 +396,7 @@ body{
   z-index: 2;
   display: flex;
   position: relative;
-  box-shadow: -1px 4px 6px rgba(0, 0, 0, 0.160);
+  box-shadow: var(--Shadow);
   border-radius: 4px;
 }
 
@@ -448,18 +414,16 @@ body{
 
 .pokedex_info-search input{
   width: 74%;
+  color: var(--Text-color);
   border: none;
   z-index: 2;
   outline: none;
   padding: 14px 20px;
   font-size: 20px;
   font-weight: 400;
+  background-color: var(--Element-color);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-} 
-
-.darck_mode .pokedex_info-search input{
-  background-color: var(--Withe-Darck);
 }
 
 .search-active input{
@@ -476,21 +440,18 @@ body{
   overflow: auto;
   position: absolute;
   transition: transform 0.5s, height 0.5s;
-  background-color: #fff;
-}
-
-.darck_mode .info_search-suggestion{
-  background-color: var(--Withe-Darck);
+  border-radius: 4px;
+  background-color: var(--Element-color);
 }
 
 .search-active .info_search-suggestion{
   height: 360px;
   transform: translateY(60px);
-  box-shadow: -1px 4px 6px rgba(0, 0, 0, 0.160);
+  box-shadow: var(--Shadow);
 }
 
 .search_suggestion-option{
-  color: #808080;
+  color: var(--Option);
   cursor: pointer;
   padding: 4px 10px;
   font-size: 18px;
@@ -505,12 +466,8 @@ body{
   background-color: var(--Background);
 }
 
-.darck_mode .search_suggestion-option:hover{
-  background-color: #d1d1d1;
-}
-
 .search_suggestion-option span{
-  color: #000;
+  color: var(--Text-color);
 }
 
 .info_search-btn{
@@ -525,7 +482,7 @@ body{
   font-weight: 500;
   align-items: center;
   justify-content: center;
-  background-color: var(--Ligt-Red);
+  background-color: var(--Light-Red);
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
@@ -560,11 +517,7 @@ body{
   align-items: center;
   border-radius: 4px;
   justify-content: space-between;
-  background-color: #fff;
-}
-
-.darck_mode .info_select-selected{
-  background-color: var(--Withe-Darck);
+  background-color: var(--Element-color);
 }
 
 .select-active .info_select-selected::after{
@@ -574,8 +527,8 @@ body{
   bottom: 0;
   content: '';
   position: absolute;
-  border-radius: 1pxx;
-  background-color: #9F9F9F;
+  border-radius: 1px;
+  background-color: var(--Border-color);
 }
 
 .info_select-selected i{
@@ -596,11 +549,7 @@ body{
   position: absolute;
   transition: height 0.5s, padding 0.5s, box-shadow 0.5s;
   border-radius: 4px;
-  background-color: #fff;
-}
-
-.darck_mode .info_select-options{
-  background-color: var(--Withe-Darck);
+  background-color: var(--Element-color);
 }
 
 .select-active .info_select-options{
@@ -610,12 +559,13 @@ body{
 }
 
 .select_options-option{
+  color: var(--Option);
   cursor: pointer;
   padding: 5px 20px;
 }
 
 .select_options-option:hover{
-  color: #fff;
+  color: var(--Text-color);
   background-color: #fd8181;
 }
 
@@ -691,12 +641,9 @@ body{
   display: flex;
   row-gap: 20px;
   padding: 26px;
+  border-radius: 4px;
   flex-direction: column;
-  background-color: #fff;
-}
-
-.darck_mode .poke_card-info{
-  background-color: #f0f0f0;
+  background-color: var(--Element-color);
 }
 
 .card_info-pokemon{
@@ -715,7 +662,7 @@ body{
   content: "";
   position: absolute;
   border-radius: 1px;
-  background-color: #c0c0c0;
+  background-color: var(--Border-color);
 }
 
 .card_info-pokemon h3{
@@ -733,7 +680,7 @@ body{
 }
 
 .card_info-pokemon span{
-  color: var(--Gray);
+  color: var(--Border-color);
   font-size: 12px;
   font-weight: 400;
 }
@@ -752,7 +699,7 @@ body{
 }
 
 .card_info-stat span{
-  color: var(--Gray);
+  color: var(--Border-color);
   font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
@@ -776,8 +723,8 @@ body{
 }
 
 .pokedex_pagination-btn{
+  color: var(--Text-color);
   width: 50px;
-  color: #000;
   border: none;
   cursor: pointer;
   font-size: 20px;
@@ -786,10 +733,6 @@ body{
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: transparent;
-}
-
-.darck_mode .pokedex_pagination-btn{
-  color: #e4e4e4;
 }
 
 .pokedex_pagination-btn:hover{
@@ -803,7 +746,6 @@ body{
 }
 
 .pagination_btn-active{
-  color: white;
   transition: box-shadow 0.3s, transform 0.4s;
   background-color: var(--Darck-Red);
 }
@@ -837,11 +779,7 @@ body{
   margin-bottom: 64px;
   padding-bottom: 80px;
   flex-direction: column;
-  background-color: #fff;
-}
-
-.darck_mode .pokemon_info{
-  background-color: #ebebeb;
+  background-color: var(--Element-color);
 }
 
 .pokemon_info-background{
@@ -868,10 +806,11 @@ body{
 }
 
 .pokemon_info-header h2{
-  border: #D3D3D3 1px solid;
+  border: var(--Border-color) 1px solid;
   padding: 0 10px;
   font-size: 40px;
   font-weight: 500;
+  border-radius: 4px;
 }
 
 .info_header-title{
@@ -897,7 +836,7 @@ body{
   width: 100%;
   height: 1px;
   border-radius: 1px;
-  background-color: #9b9b9b;
+  background-color: var(--Border-color);
 }
 
 .info_header-container{
@@ -939,11 +878,11 @@ body{
 }
 
 .body_types-element{
-  color: white;
+  color: var(--Element-color);
 }
 
 .info_skills-element{
-  border: #bdbdbd 1px solid;
+  border: var(--Border-color) 1px solid;
 }
 
 .body_types-element, .info_skills-element{
@@ -951,11 +890,11 @@ body{
   height: 46px;
   display: flex;
   font-size: 25px;
+  box-shadow: var(--Shadow);
   font-weight: 500;
   align-items: center;
   border-radius: 3px;
   justify-content: center;
-  box-shadow: -4px 4px 8px rgb(77, 77, 77, 0.400);
 }
 
 .body_types-element p::first-letter, .info_skills-element p::first-letter{
@@ -986,12 +925,12 @@ body{
 .stats_header-line{
   width: 90%;
   height: 1px;
-  background-color: var(--Very-Ligt-Gray);
+  background-color: var(--Border-color);
 }
 
 .stats_header-pokeball{
   width: 80px;
-  border: var(--Very-Ligt-Gray) 1px solid;
+  border: var(--Border-color) 1px solid;
   display: flex;
   position: relative;
   transform: rotate(-10deg);
@@ -1003,7 +942,7 @@ body{
 
 .header_pokeball-circle{
   width: 34%;
-  border: var(--Very-Ligt-Gray) 1px solid;
+  border: var(--Border-color) 1px solid;
   display: flex;
   position: relative;
   aspect-ratio: 1;
@@ -1014,7 +953,7 @@ body{
 
 .header_pokeball-circle::after{
   width: 50%;
-  border: var(--Very-Ligt-Gray) 1px solid;
+  border: var(--Border-color) 1px solid;
   content: "";
   position: absolute;
   aspect-ratio: 1;
@@ -1043,7 +982,7 @@ body{
   overflow: hidden;
   border-radius: 4px;
   margin-bottom: 32px;
-  background-color: #F6F6F6;
+  background-color: var(--Background);
 }
 
 .element_barr-color{
@@ -1080,11 +1019,7 @@ body{
   max-width: 1200px;
   box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.600);
   border-radius: 5px;
-  background-color: #fff;
-}
-
-.darck_mode .pokemon_movements{
-  background-color: #ebebeb;
+  background-color: var(--Element-color);
 }
 
 .pokemon_movements-header{
@@ -1106,12 +1041,12 @@ body{
 .movements_header-line{
   width: 90%;
   height: 1px;
-  background-color: var(--Very-Ligt-Gray);
+  background-color: var(--Border-color);
 }
 
 .movements_header-pokeball{
   width: 80px;
-  border: var(--Very-Ligt-Gray) 1px solid;
+  border: var(--Border-color) 1px solid;
   display: flex;
   position: relative;
   transform: rotate(-10deg);
@@ -1127,7 +1062,7 @@ body{
   height: 1px;
   content: "";
   position: absolute;
-  background-color: var(--Very-Ligt-Gray);
+  background-color: var(--Border-color);
 }
 
 .stats_header-pokeball::before, .movements_header-pokeball::before{
@@ -1136,7 +1071,7 @@ body{
   height: 1px;
   content: "";
   position: absolute;
-  background-color: var(--Very-Ligt-Gray);
+  background-color: var(--Border-color);
 }
 
 .pokemon_movements-container{
@@ -1145,14 +1080,18 @@ body{
   flex-wrap: wrap;
 }
 
-.movements_container-element{
-  padding: 16px 32px;
-  font-size: 18px;
-  box-shadow: 6px -6px 12px #ffffff, 
-  -6px 6px 12px #cccccc;
+.pokemon_movements-container p{
+  padding: 10px 16px;
+  box-shadow: 4px -4px 8px #ffffff, 
+  -4px 4px 8px #cccccc;
   font-weight: 400;
-  border-radius: 30px;
-  background-color: #E5E5E5;
+  border-radius: 20px;
+  background-color: var(--Background);
+}
+
+.darck_mode .pokemon_movements-container p{
+  box-shadow: 4px -4px 8px #000000, 
+  -4px 4px 8px #333333;
 }
 
 .movements_container-element::first-letter{

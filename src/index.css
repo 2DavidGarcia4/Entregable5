@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
 
+:root{
+  --Background: #E5E5E5;
+  --Light-Red: #D93F3F;
+  --Red: #FE1936;
+  --Darck-Red: #DD1A1A;
+  --Black: #0C0C0C;
+  --Light-Black: #212121;
+  --Border-color: #9F9F9F;
+  --Element-color: #eeeeee;
+  --Text-color: #111111;
+  --Shadow: 0px 3px 6px #00000026;
+  --Option: #808080;
+}
+
+.darck_mode{
+  --Background: #1a1a1a;
+  --Light-Black: #dedede;
+  --Border-color: #606060;
+  --Element-color: #111111;
+  --Text-color: #eeeeee;
+  --Option: #7f7f7f;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,16 +30,22 @@
   font-family: 'Inter', sans-serif;
 }
 
+body{
+  color: var(--Text-color);
+  transition: background-color 0.5s, color 0.5s;
+  background-color: var(--Background);
+}
+
 body::-webkit-scrollbar {
   width: 14px;
-  background-color: #E5E5E5;
+  background-color: var(--Background);
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #212121;
+  background: var(--Light-Black);
   border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: #141414;
+  background: var(--Text-color);
 }

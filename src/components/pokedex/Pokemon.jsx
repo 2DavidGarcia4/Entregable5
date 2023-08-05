@@ -72,7 +72,7 @@ export default function Pokemon(){
           </div>
         </div>
         <div className="pokemon_movements-container">
-          {pokemon?.moves.map(({move})=> <p key={move.url} className="movements_container-element" >{move.name}</p>)}
+          {pokemon?.moves.map(({move})=> <p key={move.url}  >{move.name}</p>)}
         </div>
       </section>
     </div>
